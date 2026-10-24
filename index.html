@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunny Pink Cafe 🐰🎀</title>
+    <meta name="description" content="Bunny Pink Cafe - click the bunny to discover a random dessert. A cute mini project built with HTML, CSS and vanilla JavaScript.">
+    <meta name="theme-color" content="#ffc2d9">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Decorative floating hearts -->
+    <div class="floaties" aria-hidden="true">
+        <span>🎀</span><span>💗</span><span>🍓</span><span>✨</span><span>🎀</span><span>💗</span><span>🍰</span><span>✨</span>
+    </div>
+
+    <main class="page">
+        <!-- Header -->
+        <header class="hero">
+            <svg class="bow" viewBox="0 0 120 80" aria-hidden="true">
+                <path d="M60 40 C40 8 6 10 8 36 C10 62 42 56 60 40 Z" fill="#ff8fb8"/>
+                <path d="M60 40 C80 8 114 10 112 36 C110 62 78 56 60 40 Z" fill="#ff8fb8"/>
+                <path d="M60 40 C45 52 34 74 30 78 L46 70 L52 78 Z" fill="#ffb3cf"/>
+                <path d="M60 40 C75 52 86 74 90 78 L74 70 L68 78 Z" fill="#ffb3cf"/>
+                <path d="M20 30 C28 22 40 28 46 38" stroke="#fff" stroke-opacity=".55" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M100 30 C92 22 80 28 74 38" stroke="#fff" stroke-opacity=".55" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <rect x="50" y="29" width="20" height="22" rx="8" fill="#ff6fa3"/>
+            </svg>
+            <h1 class="title">Bunny Pink Cafe</h1>
+            <p class="subtitle">Click the bunny to discover your dessert! 🍰</p>
+        </header>
+
+        <!-- Bunny Button -->
+        <section class="bunny-section" aria-label="Dessert generator">
+            <button id="generate-btn" class="bunny-btn" type="button" aria-controls="dessert-container" aria-label="Click the bunny to get a random dessert">
+                <span class="bunny-ring" aria-hidden="true"></span>
+                <img
+                    src="https://i.pinimg.com/736x/a2/85/a9/a285a9927499d1da3687ce290043a651.jpg"
+                    alt="Cute pink cartoon bunny rabbit wearing a chef's hat and holding a whisk"
+                    width="176" height="176">
+            </button>
+            <p class="hint" id="hint">Tap me! 💖</p>
+        </section>
+
+        <!-- Dessert Display -->
+        <section id="dessert-container" class="dessert-wrap" aria-live="polite" hidden>
+            <article class="dessert-card">
+                <span class="badge" id="dessert-badge">Today's pick</span>
+                <h2 id="dessert-name" class="dessert-name"></h2>
+                <div class="dessert-photo">
+                    <img id="dessert-img" src="" alt="" loading="lazy">
+                </div>
+                <p id="dessert-desc" class="dessert-desc"></p>
+                <button id="again-btn" class="again-btn" type="button">Another one, please! 🎀</button>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Made with 💗 using HTML, CSS &amp; JavaScript</p>
+        <p><a href="https://github.com/" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+    </footer>
+</body>
+</html>

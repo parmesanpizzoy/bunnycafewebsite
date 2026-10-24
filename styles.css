@@ -1,0 +1,299 @@
+/* ==========================================================
+   Bunny Pink Cafe - styles
+   Plain CSS, no frameworks, so it loads fast and is easy to read.
+   ========================================================== */
+
+:root {
+    --pink-50:  #fff5f9;
+    --pink-100: #ffe3ee;
+    --pink-200: #ffc2d9;
+    --pink-300: #ffa0c2;
+    --pink-400: #ff7aab;
+    --pink-500: #f0568f;
+    --pink-600: #d63a77;
+    --ink:      #5b3a49;
+    --radius:   28px;
+    --shadow:   0 12px 30px -10px rgba(214, 58, 119, .35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', system-ui, sans-serif;
+    color: var(--ink);
+    /* soft pink gradient + polka dots, no external image needed */
+    background:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, .85) 2px, transparent 2.5px) 0 0 / 28px 28px,
+        linear-gradient(160deg, var(--pink-100) 0%, var(--pink-200) 55%, #ffd6e7 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+[hidden] { display: none !important; }
+
+/* ---------- Layout ---------- */
+.page {
+    flex: 1;
+    width: min(100% - 2rem, 720px);
+    margin-inline: auto;
+    padding: 2.5rem 0 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Hero ---------- */
+.hero { text-align: center; margin-bottom: 1.5rem; }
+
+.bow {
+    width: 84px;
+    margin: 0 auto .25rem;
+    filter: drop-shadow(0 6px 8px rgba(214, 58, 119, .25));
+    animation: bow-bounce 3s ease-in-out infinite;
+}
+
+.title {
+    margin: 0;
+    font-family: 'Fredoka', 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    line-height: 1.1;
+    color: var(--pink-600);
+    text-shadow: 3px 3px 0 #fff, 6px 6px 0 var(--pink-200);
+    letter-spacing: .5px;
+}
+
+.subtitle {
+    margin: 1rem 0 0;
+    font-size: 1.05rem;
+    color: var(--pink-500);
+}
+
+/* ---------- Bunny button ---------- */
+.bunny-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.bunny-btn {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.bunny-btn img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bunny-ring {
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 3px dashed var(--pink-300);
+    animation: spin 22s linear infinite;
+    pointer-events: none;
+}
+
+.bunny-btn:hover { transform: scale(1.06) rotate(-3deg); box-shadow: 0 18px 36px -10px rgba(214, 58, 119, .5); }
+.bunny-btn:active { transform: scale(.94); }
+.bunny-btn.pop { animation: pop .45s ease; }
+
+.bunny-btn:focus-visible,
+.again-btn:focus-visible,
+.footer a:focus-visible {
+    outline: 4px solid var(--pink-500);
+    outline-offset: 5px;
+}
+
+.hint {
+    margin: 1.2rem 0 0;
+    font-weight: 500;
+    color: var(--pink-500);
+    animation: blink 2s ease-in-out infinite;
+}
+
+/* ---------- Dessert card ---------- */
+.dessert-wrap { animation: fade-in .55s ease both; }
+
+.dessert-card {
+    position: relative;
+    padding: 2rem 1.5rem 1.75rem;
+    background: rgba(255, 255, 255, .92);
+    border: 3px solid #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.dessert-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 40px -12px rgba(214, 58, 119, .45);
+}
+
+.badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .35rem 1.1rem;
+    background: var(--pink-500);
+    color: #fff;
+    font-family: 'Fredoka', sans-serif;
+    font-size: .9rem;
+    border-radius: 999px;
+    box-shadow: 0 6px 12px -4px rgba(214, 58, 119, .5);
+    white-space: nowrap;
+}
+
+.dessert-name {
+    margin: .5rem 0 1.25rem;
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.1rem);
+    color: var(--pink-600);
+}
+
+.dessert-photo {
+    overflow: hidden;
+    border-radius: 20px;
+    border: 4px solid var(--pink-100);
+    background: var(--pink-100);
+    aspect-ratio: 16 / 10;
+}
+
+.dessert-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease, opacity .4s ease;
+}
+
+.dessert-photo img.loading { opacity: 0; }
+.dessert-card:hover .dessert-photo img { transform: scale(1.05); }
+
+.dessert-desc {
+    margin: 1.25rem auto 1.5rem;
+    max-width: 52ch;
+    line-height: 1.7;
+    font-size: .98rem;
+}
+
+.again-btn {
+    padding: .75rem 1.6rem;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--pink-400), var(--pink-500));
+    color: #fff;
+    font: 600 1rem 'Fredoka', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 8px 16px -6px rgba(214, 58, 119, .6);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.again-btn:hover { transform: translateY(-2px) scale(1.04); }
+.again-btn:active { transform: scale(.96); }
+
+/* ---------- Floating decorations ---------- */
+.floaties { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+
+.floaties span {
+    position: absolute;
+    bottom: -40px;
+    font-size: 1.6rem;
+    opacity: .55;
+    animation: rise linear infinite;
+}
+
+.floaties span:nth-child(1) { left: 6%;  animation-duration: 16s; animation-delay: 0s; }
+.floaties span:nth-child(2) { left: 18%; animation-duration: 20s; animation-delay: 3s; font-size: 1.2rem; }
+.floaties span:nth-child(3) { left: 32%; animation-duration: 18s; animation-delay: 7s; }
+.floaties span:nth-child(4) { left: 47%; animation-duration: 22s; animation-delay: 1s; font-size: 1.1rem; }
+.floaties span:nth-child(5) { left: 61%; animation-duration: 17s; animation-delay: 5s; }
+.floaties span:nth-child(6) { left: 74%; animation-duration: 21s; animation-delay: 9s; font-size: 1.3rem; }
+.floaties span:nth-child(7) { left: 86%; animation-duration: 19s; animation-delay: 2s; }
+.floaties span:nth-child(8) { left: 94%; animation-duration: 23s; animation-delay: 6s; font-size: 1.1rem; }
+
+/* ---------- Footer ---------- */
+.footer {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
+    font-size: .88rem;
+    color: var(--pink-600);
+}
+
+.footer p { margin: .2rem 0; }
+
+.footer a {
+    color: var(--pink-600);
+    font-weight: 500;
+    text-underline-offset: 3px;
+}
+
+.footer a:hover { color: var(--pink-500); }
+
+/* ---------- Animations ---------- */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes blink  { 0%, 100% { opacity: 1; } 50% { opacity: .45; } }
+@keyframes pop {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(.88) rotate(-6deg); }
+    70%  { transform: scale(1.12) rotate(4deg); }
+    100% { transform: scale(1); }
+}
+@keyframes bow-bounce {
+    0%, 100% { transform: rotate(-4deg); }
+    50%      { transform: rotate(4deg) translateY(-4px); }
+}
+@keyframes rise {
+    from { transform: translateY(0) rotate(0); opacity: 0; }
+    10%  { opacity: .55; }
+    to   { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 480px) {
+    .bunny-btn { width: 160px; height: 160px; }
+    .dessert-card { padding-inline: 1rem; }
+}
+
+/* ---------- Respect reduced-motion settings ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+    .floaties { display: none; }
+}
