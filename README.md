@@ -40,19 +40,6 @@ Just open `index.html` in your browser, or serve the folder:
 npx serve .
 ```
 
-## 🌐 Live Demo
-
-Deploy for free with GitHub Pages: **Settings → Pages → Deploy from branch → `main` / root**.
-Then put your link here: `https://your-username.github.io/your-repo/`
-
-## 📸 Screenshot
-
-Add a screenshot here (for example `screenshot.png`):
-
-```md
-![Bunny Pink Cafe](screenshot.png)
-```
-
 ## 💗 Credits
 
 Images are from Pinterest and used for learning/demo purposes only. Replace them with your own photos or free images (Unsplash / Pexels) before sharing publicly.
